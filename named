@@ -1,0 +1,71 @@
+options {
+
+	include "/etc/named.d/forwarders.conf";
+
+};
+
+zone "." in {
+
+	type hint;
+
+	file "root.hint";
+
+};
+
+zone "localhost" in {
+
+	type master;
+
+	file "127.0.0.zone";
+
+};
+
+zone "0.0.127.in-addr.arpa" in {
+
+	type master;
+
+	file "localhost.zone";
+
+};
+
+zone "beta3.lan" in {
+
+	allow-update { key dhcpd_update; };
+
+	allow-transfer { any; };
+
+	file "/var/lib/named/master/beta3.lan";
+
+	type master;
+
+};
+
+key dhcpd_update {
+
+	algorithm hmac-md5;
+
+	secret "Q6SeFCf2qL7XmXEj/x//yQ==";
+
+};
+
+zone "32.168.192.in-addr.arpa" in {
+
+	allow-update { key dhcpd_update; };
+
+	allow-transfer { any; };
+
+	type master;
+
+	file "/var/lib/named/master/zoneinverse";
+
+
+
+};
+
+logging {
+
+	category default { log_syslog; };
+
+	channel log_syslog { syslog; };
+
+};
