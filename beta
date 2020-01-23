@@ -1,0 +1,21 @@
+$ORIGIN .
+$TTL 1036800	; 1 week 5 days
+beta3.lan		IN SOA	linux1.beta3.lan. root.linux1.beta3.lan. (
+				2011041500 ; serial
+				600        ; refresh (10 minutes)
+				300        ; retry (5 minutes)
+				1200       ; expire (20 minutes)
+				180        ; minimum (3 minutes)
+				)
+$TTL 43200	; 12 hours
+			NS	linux1.beta3.lan.
+			A	192.168.32.1
+$ORIGIN beta3.lan.
+linux1			A	192.168.32.1
+$TTL 15	; 15 seconds
+linux2			A	192.168.32.51
+			TXT	"3101ec232e26c23732430fb30e2f181bcb"
+linux3			A	192.168.32.50
+			TXT	"315f9953d1849365761a2ca4d65789d5f6"
+$TTL 43200	; 12 hours
+localhost		A	127.0.0.1

@@ -1,0 +1,23 @@
+$ORIGIN .
+$TTL 12	; 12 seconds
+
+32.168.192.in-addr.arpa	IN SOA	linux1.beta3.lan. root.linux1.beta3.lan. (
+
+				2011041501 ; serial
+
+				60         ; refresh (1 minute)
+
+				20         ; retry (20 seconds)
+
+				20         ; expire (20 seconds)
+
+				20         ; minimum (20 seconds)
+
+				)
+$TTL 43200	; 12 hours
+
+			NS	linux1.beta3.lan.
+$ORIGIN 32.168.192.in-addr.arpa.
+
+1			PTR	linux1.beta3.lan.
+
